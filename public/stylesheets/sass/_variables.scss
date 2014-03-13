@@ -28,9 +28,6 @@ $link: #f1c40f;
 }
 
 
-
-
-
 @mixin respond-min($width) {
     // If we're outputting for a fixed media query set...
     @if $fix-mqs {

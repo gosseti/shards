@@ -7,22 +7,23 @@ html
     meta name="viewport" content="width=device-width, initial-scale=1"
     link href="/application.css" rel="stylesheet"
     script src="//code.jquery.com/jquery-1.11.0.min.js"
-    script src="/application.js"
+    script src="/app.js"
 
     - (01..18).each do |i|
       - ii = i.to_s.rjust(2, '0')
       - file = "http://gosset.static.s3.amazonaws.com/toothpicks/pick_#{ii}.jpg"
       - size = FastImage.size(file)
       css:
-        .toothpicks .toothpick:nth-of-type(#{i}n).active{
+        .shards .shard:nth-of-type(#{i}n).active{
           width: #{size[0]}px;
           height: 557px;
         }
 
   body
-    .toothpicks
+    .shards
       - (01..18).each do |i|
         - ii = i.to_s.rjust(2, '0')
         - file = "http://gosset.static.s3.amazonaws.com/toothpicks/pick_#{ii}.jpg"
         - size = FastImage.size(file)
-        figure.toothpick(style="background-image:url(http://gosset.static.s3.amazonaws.com/toothpicks/pick_#{ii}.jpg)")
+        figure.shard(style="background-image:url(#{file})")
+          a.shard__link href="#{file}"

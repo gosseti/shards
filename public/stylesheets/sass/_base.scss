@@ -1,15 +1,28 @@
 html,
 body,
 .container,
-.toothpicks{
+.shards{
   height:100%;
-  overflow:hidden;
 }
 
 body{
   background:lighten($black,75%);
   position:relative;
+  padding:0 3%;
   @extend %aliased;
+
+  @include respond-min(#{$lh*2.5*18}em) {
+    padding:0;
+  }
+
+  &:after {
+    @extend .visuallyhidden;
+    content: 'break1';
+    @include respond-min(#{$lh*2.5*18}em) {
+      content: 'break2'
+    }
+  }
+
 }
 
 .home__link{
@@ -23,8 +36,9 @@ body{
   text-decoration: none;
 }
 
-.toothpicks{
-
+.shards{
+  padding:#{$lh}em 0;
+  text-align:center;
   @include respond-min(#{$lh*2.5*18}em) {
     @include flexbox;
     @include justify-content(center);
@@ -35,28 +49,91 @@ body{
   @include animation-name(fadeIn);
 }
 
-.toothpick{
-  margin:auto #{$lh/16}em;
+.shard{
+  position:relative;
+  background-size: cover;
   display:inline-block;
+  margin:#{$lh/8}em;
   width:#{$lh*2.5}em;
-  height:#{$lh*20}em;
-  background-position: center center;
-  // background-size: auto 100%;
-  cursor:pointer;
+  height:#{$lh*2.5}em;
+
   @include transition-property (all);
   @include transition-duration(0.1s);
   @include transition-timing-function($ease-out-quad);
 
-  &:hover{
-    height:557px;
+  @include respond-min(#{$lh*2.5*9}em) {
+    width:#{$lh*4}em;
+    height:#{$lh*4}em;
+    margin:#{$lh/6}em;
   }
 
-  &.active{
-    width: 800px;
-    height: 557px;
+  @include respond-min(#{$lh*2.5*18}em) {
+    margin:auto #{$lh/16}em;
+    display:inline-block;
+    width:#{$lh*2.5}em;
+    height:#{$lh*20}em;
+    background-position: center center;
+    cursor:pointer;
+
+    &:hover{
+      height:557px;
+    }
+
+    &.active{
+      width: 800px;
+      height: 557px;
+    }
   }
 
 }
+
+
+.shard__link{
+  @include respond-max(#{$lh*2.5*18}em) {
+    position:absolute;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+  }
+}
+
+
+/* overlay at start */
+.mfp-fade.mfp-bg {
+  opacity: 0;
+
+  -webkit-transition: all 0.15s ease-out;
+  -moz-transition: all 0.15s ease-out;
+  transition: all 0.15s ease-out;
+}
+/* overlay animate in */
+.mfp-fade.mfp-bg.mfp-ready {
+  opacity: 0.8;
+}
+/* overlay animate out */
+.mfp-fade.mfp-bg.mfp-removing {
+  opacity: 0;
+}
+
+/* content at start */
+.mfp-fade.mfp-wrap .mfp-content {
+  opacity: 0;
+
+  -webkit-transition: all 0.15s ease-out;
+  -moz-transition: all 0.15s ease-out;
+  transition: all 0.15s ease-out;
+}
+/* content animate it */
+.mfp-fade.mfp-wrap.mfp-ready .mfp-content {
+  opacity: 1;
+}
+/* content animate out */
+.mfp-fade.mfp-wrap.mfp-removing .mfp-content {
+  opacity: 0;
+}
+
+
 
 @include keyframes(fadeIn) {
 

@@ -1,39 +1,40 @@
-var gulp = require('gulp');
+var gulp      = require('gulp');
 
 var coffee    = require('gulp-coffee');
 var concat    = require('gulp-concat');
 var uglify    = require('gulp-uglify');
 var sass      = require('gulp-sass');
+var bourbon   = require('node-bourbon').includePaths;
 var plumber   = require('gulp-plumber');
+var minifycss = require('gulp-minify-css');
+var gulpif    = require('gulp-if');
 
 var paths = {
-  scripts: ['public/javascripts/*.coffee', '!client/external/**/*.coffee'],
-  styles: 'public/stylesheets/*.scss'
+  scripts: ['public/javascripts/*.coffee', 'public/javascripts/*.js'],
+  styles: 'public/stylesheets/sass/*.scss'
 };
 
 gulp.task('scripts', function() {
-  // Minify and copy all JavaScript (except vendor scripts)
-  return gulp.src(paths.scripts)
-    .pipe(coffee())
+  gulp.src(paths.scripts)
+    .pipe(gulpif(/[.]coffee$/, coffee()))
     .pipe(uglify())
-    .pipe(concat('application.min.js'))
-    .pipe(gulp.dest('build/js'));
+    .pipe(concat('app.js'))
+    .pipe(gulp.dest('public/'));
 });
 
-gulp.task('sass', function() {
-    gulp.src('public/stylesheets/*.scss')
-        .pipe(plumber())
-        .pipe(sass({
-            includePaths: ['_scss/includes/']
-        }))
-        .pipe(gulp.dest('build/css'));
+gulp.task('styles', function () {
+  gulp.src('public/stylesheets/application.scss')
+    .pipe(plumber())
+    .pipe(sass({
+      includePaths: ['public/stylesheets/sass/'].concat(bourbon)
+    }))
+    .pipe(minifycss())
+    .pipe(gulp.dest('public/'));
 });
 
-// Rerun the task when a file changes
 gulp.task('watch', function() {
   gulp.watch(paths.scripts, ['scripts']);
   gulp.watch(paths.styles, ['styles']);
 });
 
-// The default task (called when you run `gulp` from cli)
 gulp.task('default', ['scripts', 'styles', 'watch']);
