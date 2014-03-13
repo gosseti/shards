@@ -40,6 +40,7 @@ body{
   padding:#{$lh}em 0;
   text-align:center;
   @include respond-min(#{$lh*2.5*18}em) {
+    padding:0;
     @include flexbox;
     @include justify-content(center);
   }
