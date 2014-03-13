@@ -3,7 +3,7 @@ html
   head
     meta charset="utf-8"
     meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"
-    title Toothpicks
+    title Shards
     meta name="viewport" content="width=device-width, initial-scale=1"
     link href="/application.css" rel="stylesheet"
     script src="//code.jquery.com/jquery-1.11.0.min.js"
@@ -11,7 +11,7 @@ html
 
     - (01..18).each do |i|
       - ii = i.to_s.rjust(2, '0')
-      - file = "http://gosset.static.s3.amazonaws.com/toothpicks/pick_#{ii}.jpg"
+      - file = "http://gosset.static.s3.amazonaws.com/shards/pick_#{ii}.jpg"
       - size = FastImage.size(file)
       css:
         .shards .shard:nth-of-type(#{i}n).active{
@@ -23,7 +23,7 @@ html
     .shards
       - (01..18).each do |i|
         - ii = i.to_s.rjust(2, '0')
-        - file = "http://gosset.static.s3.amazonaws.com/toothpicks/pick_#{ii}.jpg"
+        - file = "http://gosset.static.s3.amazonaws.com/shards/pick_#{ii}.jpg"
         - size = FastImage.size(file)
         figure.shard(style="background-image:url(#{file})")
           a.shard__link href="#{file}"
