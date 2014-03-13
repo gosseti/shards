@@ -9,25 +9,6 @@ $link: #f1c40f;
   -webkit-font-smoothing: antialiased;
 }
 
-%scrollbar{
-  -webkit-overflow-scrolling: touch;
-
-  &::-webkit-scrollbar {
-    background:rgba($black,.25);
-    width: #{$lh/2}em;
-  }
-
-  &::-webkit-scrollbar-track {
-    background:rgba($black,.35);
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background:rgba($white,.25);
-  }
-
-}
-
-
 @mixin respond-min($width) {
     // If we're outputting for a fixed media query set...
     @if $fix-mqs {
@@ -40,23 +21,6 @@ $link: #f1c40f;
     @else {
         // Otherwise, output it using a regular media query
         @media screen and (min-width: $width) {
-            @content;
-        }
-    }
-}
-
-@mixin respond-min-height($height) {
-    // If we're outputting for a fixed media query set...
-    @if $fix-mqs {
-        // ...and if we should apply these rules...
-        @if $fix-mqs >= $height {
-            // ...output the content the user gave us.
-            @content;
-        }
-    }
-    @else {
-        // Otherwise, output it using a regular media query
-        @media screen and (min-height: $height) {
             @content;
         }
     }
@@ -90,34 +54,7 @@ $old-ie: false !default;
     }
 }
 
-@-webkit-keyframes fadeIn {
-  0% {
-    opacity: 1;
-  }
 
-  50%{
-    opacity:0;
-  }
-
-  100%{
-    opacity:1;
-  }
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 1;
-  }
-
-  50%{
-    opacity:0;
-  }
-
-  100%{
-    opacity:1;
-  }
-
-}
 
 // Flexbox Mixins
 // http://philipwalton.github.io/solved-by-flexbox/

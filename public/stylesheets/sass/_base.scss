@@ -39,15 +39,16 @@ body{
 .shards{
   padding:#{$lh}em 0;
   text-align:center;
+  @include animation-duration(3s);
+  @include animation-iteration-count(1);
+  @include animation-name(fadeIn);
+
   @include respond-min(#{$lh*2.5*18}em) {
     padding:0;
     @include flexbox;
     @include justify-content(center);
   }
 
-  @include animation-duration(3s);
-  @include animation-iteration-count(1);
-  @include animation-name(fadeIn);
 }
 
 .shard{
@@ -88,7 +89,6 @@ body{
 
 }
 
-
 .shard__link{
   @include respond-max(#{$lh*2.5*18}em) {
     position:absolute;
@@ -99,42 +99,31 @@ body{
   }
 }
 
-
-/* overlay at start */
 .mfp-fade.mfp-bg {
   opacity: 0;
-
-  -webkit-transition: all 0.15s ease-out;
-  -moz-transition: all 0.15s ease-out;
-  transition: all 0.15s ease-out;
+  @include transition(all 0.15s ease-out);
 }
-/* overlay animate in */
+
 .mfp-fade.mfp-bg.mfp-ready {
   opacity: 0.8;
 }
-/* overlay animate out */
+
 .mfp-fade.mfp-bg.mfp-removing {
   opacity: 0;
 }
 
-/* content at start */
 .mfp-fade.mfp-wrap .mfp-content {
   opacity: 0;
-
-  -webkit-transition: all 0.15s ease-out;
-  -moz-transition: all 0.15s ease-out;
-  transition: all 0.15s ease-out;
+  @include transition(all 0.15s ease-out);
 }
-/* content animate it */
+
 .mfp-fade.mfp-wrap.mfp-ready .mfp-content {
   opacity: 1;
 }
-/* content animate out */
+
 .mfp-fade.mfp-wrap.mfp-removing .mfp-content {
   opacity: 0;
 }
-
-
 
 @include keyframes(fadeIn) {
 
@@ -148,4 +137,3 @@ body{
   }
 
 }
-
