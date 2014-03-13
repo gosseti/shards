@@ -2,7 +2,9 @@
 
 Shards is a small portfolio app built on Sinatra. It was inspired by the old flash portfolio of [Hejz](http://hejz.com/), and has been brought up to date using Flexbox, translations and animations.
 
-![Shards screenshot](https://raw.github.com/gosseti/shards/master/public/images/shards_screenshot.png)
+# Demo
+
+[ ![Shards screenshot](https://raw.github.com/gosseti/shards/master/public/images/shards_screenshot.png "Shards") ](http://shards.gosseti.com/ "Shards")
 
 # Dependencies
 
