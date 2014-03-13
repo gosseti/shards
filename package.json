@@ -1,18 +1,29 @@
 {
   "name": "shards",
-  "version": "0.0.0",
-  "description": "Small gallery theme",
+  "version": "0.1.0",
+  "description": "Shards portfolio app",
   "main": "gulpfile.js",
   "dependencies": {
     "gulp": "~3.5.5"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "gulp" : "3.5.5",
+    "gulp-coffee" : "1.4.1",
+    "gulp-concat" : "2.1.7",
+    "gulp-if" : "0.0.5",
+    "gulp-minify-css" : "0.3.0",
+    "gulp-plumber" : "0.5.6",
+    "gulp-sass" : "0.7.1",
+    "gulp-uglify" : "0.2.1",
+    "gulp-watch" : "0.5.2",
+    "node-bourbon" : "1.0.0"
+    },
   "scripts": {
     "test": "test"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/adamstac/sinatra-bootstrap.git"
+    "url": "git://github.com/gosseti/shards.git"
   },
   "keywords": [
     "gallery",
@@ -24,7 +35,7 @@
   "author": "Lawrence Gosset",
   "license": "BSD",
   "bugs": {
-    "url": "https://github.com/adamstac/sinatra-bootstrap/issues"
+    "url": "https://github.com/gosseti/shards/issues"
   },
-  "homepage": "https://github.com/adamstac/sinatra-bootstrap"
+  "homepage": "https://github.com/gosseti/shards/sinatra-bootstrap"
 }
