@@ -9,8 +9,8 @@ Shards is a small portfolio app built on Sinatra. It was inspired by the old fla
 # Dependencies
 
 - Sinatra
-- Gulp.js
-- node.js and npm
+- gulp
+- node.js and npm (required for gulp)
 
 # Installing and running
 
