@@ -1,0 +1,30 @@
+{
+  "name": "toothpicks",
+  "version": "0.0.0",
+  "description": "Small gallery theme",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp": "~3.5.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/adamstac/sinatra-bootstrap.git"
+  },
+  "keywords": [
+    "gallery",
+    "portfolio",
+    "photos",
+    "animated",
+    "minimal"
+  ],
+  "author": "Lawrence Gosset",
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/adamstac/sinatra-bootstrap/issues"
+  },
+  "homepage": "https://github.com/adamstac/sinatra-bootstrap"
+}

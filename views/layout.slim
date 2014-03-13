@@ -1,0 +1,28 @@
+doctype html
+html
+  head
+    meta charset="utf-8"
+    meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"
+    title Toothpicks
+    meta name="viewport" content="width=device-width, initial-scale=1"
+    link href="/application.css" rel="stylesheet"
+    script src="//code.jquery.com/jquery-1.11.0.min.js"
+    script src="/application.js"
+
+    - (01..18).each do |i|
+      - ii = i.to_s.rjust(2, '0')
+      - file = "http://gosset.static.s3.amazonaws.com/toothpicks/pick_#{ii}.jpg"
+      - size = FastImage.size(file)
+      css:
+        .toothpicks .toothpick:nth-of-type(#{i}n).active{
+          width: #{size[0]}px;
+          height: 557px;
+        }
+
+  body
+    .toothpicks
+      - (01..18).each do |i|
+        - ii = i.to_s.rjust(2, '0')
+        - file = "http://gosset.static.s3.amazonaws.com/toothpicks/pick_#{ii}.jpg"
+        - size = FastImage.size(file)
+        figure.toothpick(style="background-image:url(http://gosset.static.s3.amazonaws.com/toothpicks/pick_#{ii}.jpg)")

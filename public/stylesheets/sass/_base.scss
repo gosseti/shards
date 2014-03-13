@@ -1,0 +1,73 @@
+html,
+body,
+.container,
+.toothpicks{
+  height:100%;
+  overflow:hidden;
+}
+
+body{
+  background:lighten($black,75%);
+  position:relative;
+  @extend %aliased;
+}
+
+.home__link{
+  position:absolute;
+  top:#{$lh}em;
+  left:50%;
+  width:10em;
+  margin-left:-5em;
+  text-align:center;
+  color:$black;
+  text-decoration: none;
+}
+
+.toothpicks{
+
+  @include respond-min(#{$lh*2.5*18}em) {
+    @include flexbox;
+    @include justify-content(center);
+  }
+
+  @include animation-duration(3s);
+  @include animation-iteration-count(1);
+  @include animation-name(fadeIn);
+}
+
+.toothpick{
+  margin:auto #{$lh/16}em;
+  display:inline-block;
+  width:#{$lh*2.5}em;
+  height:#{$lh*20}em;
+  background-position: center center;
+  // background-size: auto 100%;
+  cursor:pointer;
+  @include transition-property (all);
+  @include transition-duration(0.1s);
+  @include transition-timing-function($ease-out-quad);
+
+  &:hover{
+    height:557px;
+  }
+
+  &.active{
+    width: 800px;
+    height: 557px;
+  }
+
+}
+
+@include keyframes(fadeIn) {
+
+  0% {
+    opacity: 0;
+
+  }
+
+  100% {
+    opacity: 1;
+  }
+
+}
+
