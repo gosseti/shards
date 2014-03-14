@@ -12,7 +12,15 @@ ready = ->
         $(".active").removeClass("active").prev().addClass "active"
       else if e.keyCode is 39
         $(".active").removeClass("active").next().addClass "active"
+      else if e.keyCode is 27
+        $('.active').removeClass('active')
     )
+
+    $(document).click ->
+      $('.active').removeClass('active')
+    $(".shard").click (e) ->
+      e.stopPropagation() # This is the preferred method.
+      false # This should not be used unless you do not want
 
   else
 
