@@ -11,7 +11,7 @@ var gulpif    = require('gulp-if');
 
 var paths = {
   scripts: ['public/javascripts/*.coffee', 'public/javascripts/*.js'],
-  styles: 'public/stylesheets/sass/*.scss'
+  styles: ['public/stylesheets/application.scss', 'public/stylesheets/sass/*.scss']
 };
 
 gulp.task('scripts', function() {

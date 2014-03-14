@@ -25,20 +25,11 @@ body{
 
 }
 
-.home__link{
-  position:absolute;
-  top:#{$lh}em;
-  left:50%;
-  width:10em;
-  margin-left:-5em;
-  text-align:center;
-  color:$black;
-  text-decoration: none;
-}
-
 .shards{
+  position:relative;
   padding:#{$lh}em 0;
   text-align:center;
+  z-index:800;
   @include animation-duration(3s);
   @include animation-iteration-count(1);
   @include animation-name(fadeIn);
